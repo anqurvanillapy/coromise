@@ -11,20 +11,22 @@ import threading, random
 from imposer import Env, Imposer
 
 
-def accumlate(imp):
+def hellothere(imp):
     if random.choice([False, True]):
-        imp.resolve(42)
+        imp.resolve('hi good morning')
     else:
-        imp.reject('sorry')
+        imp.reject('cringe')
 
 
 def main():
     env = Env()
     imp = Imposer(env)  # env for message dispathing
-    thr = threading.Thread(target=accumulate, args=(imp))
+    thr = threading.Thread(target=hellothere, args=(imp))
+
     try:
         print(imp.wait())
-    except Exception as e:
+        thr.join()
+    except ImposerError as e:
         print('oops a rejection!')
         raise e
 
