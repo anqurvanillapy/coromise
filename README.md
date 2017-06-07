@@ -1,6 +1,6 @@
-# coromise
+# imposer
 
-Coroutine-based promise in Python.
+Lightweight promise library for `multithreading`.
 
 ## License
 
